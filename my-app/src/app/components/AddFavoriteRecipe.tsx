@@ -1,6 +1,6 @@
+"use client";
 import React from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-
 interface Recipe {
   label: string;
   image: string;

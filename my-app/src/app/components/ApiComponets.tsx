@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
-import { fetchData } from './../api/index';
+import { fetchData } from '../api/index';
 import DisplayComponent from './RecipeCard';
 import FavoritesPage from './FavoriteRecipeList';
-import '../styles/page.module.css';
 import Link from 'next/link';
 
 const SearchComponent: React.FC = () => {
@@ -30,7 +29,9 @@ const SearchComponent: React.FC = () => {
             <Link href={"/"} passHref>Home</Link>
           </li>
           <li>
-            <Link href={"/favorites"} passHref>Favorites</Link>
+            <Link href="/favorites" passHref>
+              Add Favorite Recipe
+            </Link>
           </li>
         </ul>
         <div className="search-container">

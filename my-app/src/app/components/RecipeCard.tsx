@@ -1,6 +1,5 @@
 import React from 'react';
 import AddFavoriteRecipe from './AddFavoriteRecipe';
-import '../styles/page.module.css';
 
 const DisplayComponent: React.FC<{ data: any }> = ({ data }) => {
   const handleDisplay = () => {
