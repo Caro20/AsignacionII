@@ -17,16 +17,35 @@ const SearchComponent: React.FC = () => {
   }, []);
 
   return (
-    <div className="search-container">
-      <input
-        className="search-input"
-        type="text"
-        placeholder="Ingrese su búsqueda..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <button className="search-button" onClick={handleSearch}>Buscar</button>
-      <DisplayComponent data={data} />
+    <div>
+      <div className="title-page">
+        <h1>Recipe search page</h1>
+      </div>
+      <nav className="nav-bar">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">Favorites</a>
+          </li>
+        </ul>
+        <div className="search-container">
+          <input
+            className="search-input"
+            type="text"
+            placeholder="Enter your search..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button className="search-button" onClick={handleSearch}>
+            Search
+          </button>
+        </div>
+      </nav>
+      <div className="content-container">
+        <DisplayComponent data={data} />
+      </div>
     </div>
   );
 };
