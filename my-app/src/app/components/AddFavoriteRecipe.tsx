@@ -12,7 +12,7 @@ const AddFavoriteRecipe: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
 
   const addToFavorites = () => {
     setFavorites([...favorites, recipe]);
-    console.log(`Added to favorites: ${recipe.label}`);
+    alert(`Added to favorites: ${recipe.label}`);
   };
 
   return <button onClick={addToFavorites}>Add to favorites</button>;
