@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router'
 import { fetchData } from '../api/index';
 import DisplayComponent from './RecipeCard';
 import Link from 'next/link';
+
+import "../styles/ApiComponents.css"
 
 const SearchComponent: React.FC = () => {
   const [data, setData] = useState<any>(null);
@@ -19,9 +20,7 @@ const SearchComponent: React.FC = () => {
 
   return (
     <div>
-      <div className="title-page">
-        <h1>Recipe search page</h1>
-      </div>
+
       <nav className="nav-bar">
         <ul>
           <li>

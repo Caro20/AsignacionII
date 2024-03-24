@@ -1,12 +1,13 @@
 "use client"
 import React from 'react';
-import styles from './styles/page.module.css'
 import ApiComponent from './components/ApiComponets';
+import Header from './components/Header';
 
 const MyPage: React.FC = () => {
   
   return (
-    <div>
+    <div className='principal-container'>
+      <Header/>
       <ApiComponent />
     </div>
   );
