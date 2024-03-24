@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router'
 import { fetchData } from './../api/index';
 import DisplayComponent from './RecipeCard';
+import FavoritesPage from './FavoriteRecipeList';
 import '../styles/page.module.css';
+import Link from 'next/link';
 
 const SearchComponent: React.FC = () => {
   const [data, setData] = useState<any>(null);
@@ -24,10 +27,10 @@ const SearchComponent: React.FC = () => {
       <nav className="nav-bar">
         <ul>
           <li>
-            <a href="#">Home</a>
+            <Link href={"/"} passHref>Home</Link>
           </li>
           <li>
-            <a href="#">Favorites</a>
+            <Link href={"/favorites"} passHref>Favorites</Link>
           </li>
         </ul>
         <div className="search-container">

@@ -1,4 +1,5 @@
 import React from 'react';
+import AddFavoriteRecipe from './AddFavoriteRecipe';
 import '../styles/page.module.css';
 
 const DisplayComponent: React.FC<{ data: any }> = ({ data }) => {
@@ -8,6 +9,7 @@ const DisplayComponent: React.FC<{ data: any }> = ({ data }) => {
       <div className="recipe-card" key={hit.recipe.uri}>
         <h3 className="recipe-title">{hit.recipe.label}</h3>
         <img className="recipe-image" src={hit.recipe.image} alt={hit.recipe.label} />
+        <AddFavoriteRecipe recipe={hit.recipe} />
       </div>
     ));
   };
