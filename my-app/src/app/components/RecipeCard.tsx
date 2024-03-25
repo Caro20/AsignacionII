@@ -30,7 +30,7 @@ const DisplayComponent: React.FC<{ data: any }> = ({ data }) => {
         <p className="recipe-dishType">{hit.recipe.dishType}</p>
         <img className="recipe-image" src={hit.recipe.image} alt={hit.recipe.label} />
         <AddFavoriteRecipe recipe={hit.recipe} />
-        <button className='show-ingredients' onClick={toggleIngredients}>Show Ingredients</button>
+        {/*<button className='show-ingredients' onClick={toggleIngredients}>Show Ingredients</button>*/}
         {showIngredients && (
           <>
             <h4>Ingredients</h4>
@@ -53,7 +53,7 @@ const DisplayComponent: React.FC<{ data: any }> = ({ data }) => {
       {data && data.hits && (
         <div className="pagination">
           {[...Array(Math.ceil(data.hits.length / itemsPerPage))].map((_, index) => (
-            <button key={index} onClick={() => handlePageChange(index + 1)}>
+            <button key={index} onClick={() => handlePageChange(index + 1)} className={`pagination-button ${currentPage === index + 1 ? 'active' : ''}`}>
               {index + 1}
             </button>
           ))}

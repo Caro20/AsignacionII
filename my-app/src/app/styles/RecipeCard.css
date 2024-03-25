@@ -24,7 +24,7 @@
 	border-radius: 5px;
 	padding: 10px;
 	margin-bottom: 10px;
-	box-shadow: 0 3px 2px 1px rgb(0 0 0 / 40%);
+	box-shadow: 0 3px 5px 1px rgb(0 0 0 / 25%);
 	background-color: #e9dbc8;
 }
 
@@ -34,8 +34,7 @@
 	color: #662d01;
 	font-weight: bold;
 	font-size: x-large;
-	
-	
+		
 }
 
 .recipe-image {
@@ -43,8 +42,6 @@
 	max-height: 150px;
 	object-fit: cover;
 	border-radius: 5px;
-	margin-bottom: 5px;
-	margin-top: 5px;
 	box-shadow: 0 1px 5px 1px rgb(0 0 0 / 25%);
 }
 
@@ -69,17 +66,19 @@
 	font-weight: bold;
 	font-size: medium;
 	text-align: center;
+	box-shadow: 0 3px 5px 1px rgb(0 0 0 / 25%);
 }
 
 .recipe-cuisineType {
 	color: #662d01;
-	background-color: rgb(255, 255, 255);
+	background-color: #ffffff;
 	border-radius: 5px;
 	padding: 5px;
-	margin-top: 0;
+	margin-top: 5px;
 	font-weight: bold;
 	font-size: medium;
 	text-align: center;
+	box-shadow: 0 3px 5px 1px rgb(0 0 0 / 25%);
 }
 
 .show-ingredients{
