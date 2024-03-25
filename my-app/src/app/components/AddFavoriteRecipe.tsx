@@ -1,5 +1,5 @@
 "use client";
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useLocalStorage } from '../hooks/UseLocalStorage';
 import { useState } from 'react';
 import "../styles/AddFavoriteRecipe.css"
 interface Recipe {

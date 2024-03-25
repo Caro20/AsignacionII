@@ -3,7 +3,7 @@ import AddFavoriteRecipe from './AddFavoriteRecipe';
 import SkeletonComponent from './SkeletonComponent';
 import Link from 'next/link';
 import '../styles/RecipeCard.css';
-import '../styles/pagination.css';
+import '../styles/Pagination.css';
 
 const DisplayComponent: React.FC<{ data: any }> = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
