@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { fetchData } from '../api/index';
 import DisplayComponent from './RecipeCard';
 import Link from 'next/link';
-
-import "../styles/ApiComponents.css"
+import SkeletonComponent from './SkeletonComponent';
+import '../styles/RecipeCard.css';
+import '../styles/ApiComponents.css';
 
 const SearchComponent: React.FC = () => {
   const [data, setData] = useState<any>(null);
@@ -20,11 +21,12 @@ const SearchComponent: React.FC = () => {
 
   return (
     <div>
-
       <nav className="nav-bar">
         <ul>
           <li>
-            <Link href={"/"} passHref>Home</Link>
+            <Link href={'/'} passHref>
+              Home
+            </Link>
           </li>
           <li>
             <Link href="/favorites" passHref>
@@ -46,7 +48,18 @@ const SearchComponent: React.FC = () => {
         </div>
       </nav>
       <div className="content-container">
-        <DisplayComponent data={data} />
+        <Suspense
+          fallback={
+            <div className="skeleton-container">
+              <SkeletonComponent />
+              <SkeletonComponent />
+              <SkeletonComponent />
+              <SkeletonComponent />
+            </div>
+          }
+        >
+          <DisplayComponent data={data} />
+        </Suspense>
       </div>
     </div>
   );
