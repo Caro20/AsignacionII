@@ -1,6 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Header from '../components/Header';
+import "../styles/Header.css"
+import "../styles/FavoritesRecipes.css"
 
 interface Ingredient {
   text: string;
@@ -13,6 +16,8 @@ interface Ingredient {
 interface Recipe {
   label: string;
   image: string;
+  dishType: String;
+  cuisineType: String;
   ingredients: Ingredient[];
 }
 
@@ -31,6 +36,7 @@ const FavoritesPage: React.FC = () => {
 
   return (
     <div>
+      <Header />
       <nav className="nav-bar">
         <ul>
           <li>
@@ -40,17 +46,23 @@ const FavoritesPage: React.FC = () => {
           </li>
         </ul>
       </nav>
-      <h1>Mis recetas favoritas</h1>
       {favorites.map((recipe, index) => (
-        <div key={index}>
-          <h2>{recipe.label}</h2>
-          <img src={recipe.image} alt={recipe.label} />
-          <ul>
-            {recipe.ingredients.map((ingredient, i) => (
-              <li key={i}>{ingredient.text}</li>
-            ))}
-          </ul>
+
+        <div key={index} className='display-container'>
+          <div className='recipe-card'>
+            <h2 className='recipe-title'>{recipe.label}</h2>
+            <p className="recipe-cuisineType">{recipe.cuisineType}</p>
+            <p className="recipe-dishType">{recipe.dishType}</p>
+            <img className="recipe-image" src={recipe.image} alt={recipe.label} />
+            <h4 className='recipe-title'>Ingredients</h4>
+            <ul>
+              {recipe.ingredients.map((ingredient, i) => (
+                <li key={i}>{ingredient.text}</li>
+              ))}
+            </ul>
+          </div>
         </div>
+
       ))}
     </div>
   );

@@ -1,21 +1,22 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import AddFavoriteRecipe from './AddFavoriteRecipe';
 import SkeletonComponent from './SkeletonComponent';
+import Link from 'next/link';
 import '../styles/RecipeCard.css';
 import '../styles/pagination.css';
 
 const DisplayComponent: React.FC<{ data: any }> = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
-  const [showIngredients, setShowIngredients] = useState(false);
+  const [selectedRecipe, setSelectedRecipe] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(false);
   }, [data]);
 
-  const toggleIngredients = () => {
-    setShowIngredients(!showIngredients);
+  const toggleIngredients = (recipeUri: string) => {
+    setSelectedRecipe(recipeUri === selectedRecipe ? null : recipeUri);
   };
 
   const renderIngredients = (ingredients: any[]) => {
@@ -56,15 +57,12 @@ const DisplayComponent: React.FC<{ data: any }> = ({ data }) => {
           alt={hit.recipe.label}
         />
         <AddFavoriteRecipe recipe={hit.recipe} />
-        <button className="show-ingredients" onClick={toggleIngredients}>
-          Show Ingredients
-        </button>
-        {showIngredients && (
-          <>
-            <h4>Ingredients</h4>
-            {renderIngredients(hit.recipe.ingredients)}
-          </>
-        )}
+        <h4 className='recipe-title'>Ingredients</h4>
+        <div className="ingredients-scroll">
+          
+          {renderIngredients(hit.recipe.ingredients)}
+        </div>
+        
       </div>
     ));
   };
