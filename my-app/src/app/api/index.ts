@@ -3,26 +3,25 @@ import axios from 'axios';
 export const fetchData = async (searchTerm: string) => {
   const options = {
     method: 'GET',
-    url: 'https://edamam-recipe-search.p.rapidapi.com/api/recipes/v2',
-    params: {
-      type: 'public',
-      q: searchTerm,
-      co2EmissionsClass: 'A+',
-      'field[0]': 'uri',
-      beta: 'true',
-      random: 'true',
-      'cuisineType[0]': '',
-      'imageSize[0]': '',
-      'mealType[0]': '',
-      'health[0]': '',
-      'diet[0]': '',
-      'dishType[0]': ''
-    },
-    headers: {
-      'Accept-Language': 'en',
-      'X-RapidAPI-Key': '40e2a7cfb0mshcde9a3299ce5e54p1d7fd2jsn5f539369f0c7',
-      'X-RapidAPI-Host': 'edamam-recipe-search.p.rapidapi.com'
-    }
+  url: 'https://edamam-recipe-search.p.rapidapi.com/api/recipes/v2',
+  params: {
+    type: 'public',
+    co2EmissionsClass: 'A+',
+    'field[0]': 'uri',
+    beta: 'true',
+    random: 'true',
+    'cuisineType[0]': 'American',
+    'imageSize[0]': 'LARGE',
+    'mealType[0]': 'Breakfast',
+    'health[0]': 'alcohol-cocktail',
+    'diet[0]': 'balanced',
+    'dishType[0]': 'cookies'
+  },
+  headers: {
+    'Accept-Language': 'en',
+    'X-RapidAPI-Key': 'e3de8e6962msh6f52643c5be5b90p16915fjsne69e0d26d9f5',
+    'X-RapidAPI-Host': 'edamam-recipe-search.p.rapidapi.com'
+  }
   };
 
   try {
