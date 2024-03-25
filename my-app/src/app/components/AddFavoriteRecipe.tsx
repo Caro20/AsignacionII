@@ -1,7 +1,7 @@
-'use client';
-import React from 'react';
+"use client";
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import '../styles/AddFavoriteRecipe.css';
+import { useState } from 'react';
+import "../styles/AddFavoriteRecipe.css"
 interface Recipe {
   label: string;
   image: string;
@@ -10,17 +10,14 @@ interface Recipe {
 
 const AddFavoriteRecipe: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
   const [favorites, setFavorites] = useLocalStorage<Recipe[]>('favorites', []);
+  const [clicked, setClicked] = useState(false);
 
   const addToFavorites = () => {
     setFavorites([...favorites, recipe]);
-    alert(`Added to favorites: ${recipe.label}`);
+    setClicked(true);
   };
 
-  return (
-    <button className="primary" onClick={addToFavorites}>
-      Add to favorites
-    </button>
-  );
+  return <button className={`primary ${clicked ? 'clicked' : ''}`} onClick={addToFavorites}>Add to favorites</button>;
 };
 
 export default AddFavoriteRecipe;
