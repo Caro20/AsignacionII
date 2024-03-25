@@ -6,8 +6,8 @@ const SkeletonComponent = () => {
       <div style={{ marginBottom: '1rem' }}>
         <Skeleton
           variant="rectangular"
-          width={210}
-          height={118}
+          width={230}
+          height={130}
           style={{ backgroundColor: '#e9dbc8' }}
         />
       </div>

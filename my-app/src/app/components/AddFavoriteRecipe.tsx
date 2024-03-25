@@ -14,6 +14,7 @@ const AddFavoriteRecipe: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
 
   const addToFavorites = () => {
     setFavorites([...favorites, recipe]);
+    alert(`Added to favorites: ${recipe.label}`);
     setClicked(true);
   };
 
