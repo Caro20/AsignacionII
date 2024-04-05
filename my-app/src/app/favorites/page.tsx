@@ -2,24 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Header from '../components/Header';
+import { Recipe } from '../types/types';
 import "../styles/Header.css"
 import "../styles/FavoritesRecipes.css"
-
-interface Ingredient {
-  text: string;
-  weight: number;
-  foodCategory: string;
-  foodId: string;
-  image: string;
-}
-
-interface Recipe {
-  label: string;
-  image: string;
-  dishType: String;
-  cuisineType: String;
-  ingredients: Ingredient[];
-}
 
 const FavoritesPage: React.FC = () => {
   const [favorites, setFavorites] = useState<Recipe[]>(() => {
@@ -50,7 +35,7 @@ const FavoritesPage: React.FC = () => {
 
         <div key={index} className='display-container'>
           <div className='recipe-card'>
-            <h2 className='recipe-title'>{recipe.label}</h2>
+            <h2 className='recipe-title'>{}</h2>
             <p className="recipe-cuisineType">{recipe.cuisineType}</p>
             <p className="recipe-dishType">{recipe.dishType}</p>
             <img className="recipe-image" src={recipe.image} alt={recipe.label} />

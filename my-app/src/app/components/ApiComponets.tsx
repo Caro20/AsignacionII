@@ -3,11 +3,12 @@ import { fetchData } from '../api/index';
 import DisplayComponent from './RecipeCard';
 import Link from 'next/link';
 import SkeletonComponent from './SkeletonComponent';
+import { Data } from '../types/types';
 import '../styles/RecipeCard.css';
 import '../styles/ApiComponents.css';
 
 const SearchComponent: React.FC = () => {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<Data | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   const handleSearch = async () => {
