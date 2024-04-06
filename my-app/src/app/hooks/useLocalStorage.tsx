@@ -13,7 +13,7 @@ export function useLocalStorage<T>(
   }, [key]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (state && typeof state !== 'function') {
       localStorage.setItem(key, JSON.stringify(state));
     }
   }, [key, state]);

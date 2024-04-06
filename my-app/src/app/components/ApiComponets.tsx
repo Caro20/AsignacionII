@@ -30,7 +30,7 @@ const SearchComponent: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link href="/favorites" passHref>
+            <Link href="/pages/favorites" passHref>
               Favorites
             </Link>
           </li>

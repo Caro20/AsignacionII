@@ -1,10 +1,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Header from '../components/Header';
-import { Recipe } from '../types/types';
-import "../styles/Header.css"
-import "../styles/FavoritesRecipes.css"
+import { Recipe } from '../../types/types';
+import "@/app/styles/Header.css"
+import "@/app/styles/FavoritesRecipes.css"
+import Header from '@/app/components/Header';
 
 const FavoritesPage: React.FC = () => {
   const [favorites, setFavorites] = useState<Recipe[]>(() => {
@@ -13,7 +13,7 @@ const FavoritesPage: React.FC = () => {
   });
 
   useEffect(() => {
-    const storedFavorites = localStorage.getItem('favorites');
+    const storedFavorites = localStorage.getItem('/pages/favorites');
     if (storedFavorites) {
       setFavorites(JSON.parse(storedFavorites));
     }
