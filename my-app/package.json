@@ -14,7 +14,7 @@
     "@mui/material": "^5.15.14",
     "axios": "^1.6.8",
     "isomorphic-unfetch": "^4.0.2",
-    "next": "14.1.4",
+    "next": "^14.1.4",
     "next-navigation": "^1.0.6",
     "nextjs-routes": "^2.1.0",
     "react": "^18",
