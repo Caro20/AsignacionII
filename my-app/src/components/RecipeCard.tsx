@@ -2,8 +2,8 @@ import React, { useState, useEffect, Suspense } from 'react';
 import AddFavoriteRecipe from './AddFavoriteRecipe';
 import SkeletonComponent from './SkeletonComponent';
 import { RecipeHit, Ingredient, Data } from '../types/types';
-import '@/app/styles/RecipeCard.css';
-import '@/app/styles/Pagination.css';
+import '@/styles/RecipeCard.css';
+import '@/styles/Pagination.css';
 
 const DisplayComponent: React.FC<{ data: Data | null }> = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);

@@ -1,7 +1,7 @@
 'use client';
 import React, { Suspense } from 'react';
-import ApiComponent from './components/ApiComponets';
-import Header from './components/Header';
+import ApiComponent from '../components/ApiComponets';
+import Header from '../components/Header';
 
 const MyPage: React.FC = () => {
   return (

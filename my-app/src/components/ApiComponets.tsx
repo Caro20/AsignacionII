@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense } from 'react';
-import { fetchData } from '../api/index';
+import { fetchData } from '@/app/api/recipeService';
 import DisplayComponent from './RecipeCard';
 import Link from 'next/link';
 import SkeletonComponent from './SkeletonComponent';
@@ -30,7 +30,7 @@ const SearchComponent: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link href="/pages/favorites" passHref>
+            <Link href="/favorites" passHref>
               Favorites
             </Link>
           </li>

@@ -1,8 +1,8 @@
 'use client';
-import { useLocalStorage } from '@/app/hooks/UseLocalStorage';
+import { useLocalStorage } from '../hooks/UseLocalStorage';
 import { useState } from 'react';
-import { Recipe } from '@/app/types/types.d';
-import '@/app/styles/AddFavoriteRecipe.css';
+import { Recipe } from '@/types/types';
+import '../styles/AddFavoriteRecipe.css';
 
 const AddFavoriteRecipe: React.FC<{ recipe: Recipe }> = ({ recipe }) => {
   const [favorites, setFavorites] = useLocalStorage<Recipe[]>('favorites', []);
