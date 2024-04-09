@@ -2,20 +2,25 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Recipe } from '@/types/types';
-import "@/styles/Header.css"
-import "@/styles/FavoritesRecipes.css"
+import '@/styles/Header.css';
+import '@/styles/FavoritesRecipes.css';
 import Header from '@/components/Header';
 
 const FavoritesPage: React.FC = () => {
   const [favorites, setFavorites] = useState<Recipe[]>(() => {
-    const storedFavorites = localStorage.getItem('favorites');
-    return storedFavorites ? JSON.parse(storedFavorites) : [];
+    if (typeof window !== 'undefined') {
+      const storedFavorites = localStorage.getItem('favorites');
+      return storedFavorites ? JSON.parse(storedFavorites) : [];
+    }
+    return [];
   });
 
   useEffect(() => {
-    const storedFavorites = localStorage.getItem('favorites');
-    if (storedFavorites) {
-      setFavorites(JSON.parse(storedFavorites));
+    if (typeof window !== 'undefined') {
+      const storedFavorites = localStorage.getItem('favorites');
+      if (storedFavorites) {
+        setFavorites(JSON.parse(storedFavorites));
+      }
     }
   }, []);
 
@@ -32,14 +37,17 @@ const FavoritesPage: React.FC = () => {
         </ul>
       </nav>
       {favorites.map((recipe, index) => (
-
-        <div key={index} className='display-container'>
-          <div className='recipe-card'>
-            <h2 className='recipe-title'>{}</h2>
+        <div key={index} className="display-container">
+          <div className="recipe-card">
+            <h2 className="recipe-title">{}</h2>
             <p className="recipe-cuisineType">{recipe.cuisineType}</p>
             <p className="recipe-dishType">{recipe.dishType}</p>
-            <img className="recipe-image" src={recipe.image} alt={recipe.label} />
-            <h4 className='recipe-title'>Ingredients</h4>
+            <img
+              className="recipe-image"
+              src={recipe.image}
+              alt={recipe.label}
+            />
+            <h4 className="recipe-title">Ingredients</h4>
             <ul>
               {recipe.ingredients.map((ingredient, i) => (
                 <li key={i}>{ingredient.text}</li>
@@ -47,13 +55,9 @@ const FavoritesPage: React.FC = () => {
             </ul>
           </div>
         </div>
-
       ))}
     </div>
   );
 };
 
 export default FavoritesPage;
-
-
-
